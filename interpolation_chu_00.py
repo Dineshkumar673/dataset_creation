@@ -24,7 +24,7 @@ signdict={}
 pose_lndmarkdict={}
 hand_lndmarkdict_right={}
 hand_lndmarkdict_left={}
-dest_dir = ""
+dest_dir = "/mnt/fs/missing_images/Arya_chudidhar_0000/"
 
 for aug_dir in char_dir_lst:
   aug_dir_lst = os.listdir(os.path.join(char_dir,aug_dir))
