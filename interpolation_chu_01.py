@@ -16,7 +16,7 @@ from mediapipe.python.solutions import drawing_utils as mp_drawing
 from mediapipe.python.solutions import pose as mp_pose
 from mediapipe.python.solutions import hands as mp_hands
 
-char_dir = "/mnt/fs/Synthetic_dataset_creation/Absdiff_dataset/Datasets/Absdiff_base_dir/segmented_dataset/Arya_chudidhar_augs_0000/"
+char_dir = "/mnt/fs/Synthetic_dataset_creation/Absdiff_dataset/Datasets/Absdiff_base_dir/segmented_dataset/Arya_chudidhar_augs_0001/"
 
 char_dir_lst = os.listdir(char_dir)
 char_dir_lst.sort()
@@ -24,7 +24,7 @@ signdict={}
 pose_lndmarkdict={}
 hand_lndmarkdict_right={}
 hand_lndmarkdict_left={}
-dest_dir = ""
+dest_dir = "/mnt/fs/missing_images/Arya_chudidhar_0001/"
 
 for aug_dir in char_dir_lst:
   aug_dir_lst = os.listdir(os.path.join(char_dir,aug_dir))
@@ -520,4 +520,5 @@ for aug_dir in char_dir_lst:
     result2=result1.join(output_df1)
     result=result2.join(output_df2)
     
-    result.to_csv('/content/drive/MyDrive/augs_chudi00.csv', mode='a', header=False)
+    result.to_csv('/mnt/fs/dataset_creation/augs_chudi01.csv', mode='a', header=False)
+ print("Done with Arya_chudi_0001")
