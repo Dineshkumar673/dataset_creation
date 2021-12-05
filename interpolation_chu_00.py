@@ -521,3 +521,4 @@ for aug_dir in char_dir_lst:
     result=result2.join(output_df2)
     
     result.to_csv('/mnt/fs/dataset_creation/augs_chudi00.csv', mode='a', header=False)
+print("Done with Arya_chudi_0000")
