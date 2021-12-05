@@ -520,4 +520,4 @@ for aug_dir in char_dir_lst:
     result2=result1.join(output_df1)
     result=result2.join(output_df2)
     
-    result.to_csv('/content/drive/MyDrive/augs_chudi00.csv', mode='a', header=False)
+    result.to_csv('/mnt/fs/dataset_creation/augs_chudi00.csv', mode='a', header=False)
