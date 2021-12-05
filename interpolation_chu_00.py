@@ -491,23 +491,21 @@ for aug_dir in char_dir_lst:
     #checking for continuous 3 null frames
     
     i=0
+    k=3
     for image in sign_dir_lst:
       name = str(i)
       name = name.zfill(4)
       input_frame = cv2.imread(os.path.join(char_dir,aug_dir,sign_dir,image))
-      for k in range(3,11):
-            
-          if (hand_lndmarkdict_left[k]['None_pose'] == 0) and (hand_lndmarkdict_left[k+1]['None_pose'] == 0)   and (hand_lndmarkdict_left[k+2]['None_pose'] == 0) or (hand_lndmarkdict_right[k]['None_pose'] == 0) and (hand_lndmarkdict_right[k+1]['None_pose'] == 0) and (hand_lndmarkdict_right[k+2]['None_pose'] == 0):
-            cv2.imwrite(os.path.join(os.path.join(dest_dir,aug_dir,sign_dir),name+".jpg"),input_frame)
-          elif (hand_lndmarkdict_left[k]['None_pose'] == 0) and (hand_lndmarkdict_left[k+1]['None_pose'] == 0)   and (hand_lndmarkdict_left[k-1]['None_pose'] == 0) or (hand_lndmarkdict_right[k]['None_pose'] == 0) and (hand_lndmarkdict_right[k+1]['None_pose'] == 0) and (hand_lndmarkdict_right[k-1]['None_pose'] == 0):
-            cv2.imwrite(os.path.join(os.path.join(dest_dir,aug_dir,sign_dir),name+".jpg"),input_frame)
-          elif (hand_lndmarkdict_left[k]['None_pose'] == 0) and (hand_lndmarkdict_left[k-1]['None_pose'] == 0)   and (hand_lndmarkdict_left[k-2]['None_pose'] == 0) or (hand_lndmarkdict_right[k]['None_pose'] == 0) and (hand_lndmarkdict_right[k-1]['None_pose'] == 0) and (hand_lndmarkdict_right[k-2]['None_pose'] == 0):
-            cv2.imwrite(os.path.join(os.path.join(dest_dir,aug_dir,sign_dir),name+".jpg"),input_frame)
-          #k = k + 1
-          i = i + 1
-          if i == len(sign_dir_lst):
+          
+      if (hand_lndmarkdict_left[k]['None_pose'] == 0) and (hand_lndmarkdict_left[k+1]['None_pose'] == 0)   and (hand_lndmarkdict_left[k-1]['None_pose'] == 0) or (hand_lndmarkdict_right[k]['None_pose'] == 0) and (hand_lndmarkdict_right[k+1]['None_pose'] == 0) and (hand_lndmarkdict_right[k-1]['None_pose'] == 0):
+        cv2.imwrite(os.path.join(os.path.join(dest_dir,aug_dir,sign_dir),name+".jpg"),input_frame)
+      elif (hand_lndmarkdict_left[k]['None_pose'] == 0) and (hand_lndmarkdict_left[k-1]['None_pose'] == 0)   and (hand_lndmarkdict_left[k-2]['None_pose'] == 0) or (hand_lndmarkdict_right[k]['None_pose'] == 0) and (hand_lndmarkdict_right[k-1]['None_pose'] == 0) and (hand_lndmarkdict_right[k-2]['None_pose'] == 0):
+        cv2.imwrite(os.path.join(os.path.join(dest_dir,aug_dir,sign_dir),name+".jpg"),input_frame)
+      k = k + 1
+      i = i + 1
+      if i == len(sign_dir_lst):
 
-            break 
+        break 
     output=pd.DataFrame.from_dict(signdict, orient='index')
     output_df=pd.DataFrame.from_dict(pose_lndmarkdict, orient='index')
     output_df.drop('None_pose',axis='columns', inplace=True)
