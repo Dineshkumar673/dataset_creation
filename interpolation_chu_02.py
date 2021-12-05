@@ -489,8 +489,8 @@ for aug_dir in char_dir_lst:
         for landmark in hand_lndmarkdict_left[fn]:
           hand_lndmarkdict_left[fn][landmark] = (hand_lndmarkdict_left[fn-1][landmark] + hand_lndmarkdict_left[fn+1][landmark])/2
     #checking for continuous 3 null frames
-    k=0
-    i=0
+    k=2
+    i=2
     for image in sign_dir_lst:
       name = str(i)
       name = name.zfill(4)
@@ -503,7 +503,7 @@ for aug_dir in char_dir_lst:
         cv2.imwrite(os.path.join(os.path.join(dest_dir,aug_dir,sign_dir),name+".jpg"),input_frame)
       k = k + 1
       i = i + 1
-      if i == len(sign_dir_lst):
+      if k == 10:
 
         break 
     output=pd.DataFrame.from_dict(signdict, orient='index')
