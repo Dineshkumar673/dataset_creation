@@ -16,7 +16,7 @@ from mediapipe.python.solutions import drawing_utils as mp_drawing
 from mediapipe.python.solutions import pose as mp_pose
 from mediapipe.python.solutions import hands as mp_hands
 
-char_dir = "/mnt/fs/Synthetic_dataset_creation/Absdiff_dataset_ver_2/Dataset/segmented_dataset/Arya_black_chudi_dataset_0002/"
+char_dir = "/mnt/fs/Synthetic_dataset_creation/Absdiff_dataset_ver_2/Dataset/segmented_dataset/Arya_black_chudi_dataset_0003/"
 
 char_dir_lst = os.listdir(char_dir)
 char_dir_lst.sort()
@@ -24,7 +24,7 @@ signdict={}
 pose_lndmarkdict={}
 hand_lndmarkdict_right={}
 hand_lndmarkdict_left={}
-dest_dir = "/mnt/fs/missing_images_ver_2/Arya_black_chudi_0002/"
+dest_dir = "/mnt/fs/missing_images_ver_2/Arya_black_chudi_0003/"
 
 for aug_dir in char_dir_lst:
   aug_dir_lst = os.listdir(os.path.join(char_dir,aug_dir))
@@ -520,5 +520,5 @@ for aug_dir in char_dir_lst:
     result2=result1.join(output_df1)
     result=result2.join(output_df2)
     
-    result.to_csv('/mnt/fs/dataset_creation/Arya_black_chudi_0002.csv', mode='a', header=False)
-print("Done with Arya_black_chudi_0002")
+    result.to_csv('/mnt/fs/dataset_creation/Arya_black_chudi_0003.csv', mode='a', header=False)
+print("Done with Arya_black_chudi_0003")
