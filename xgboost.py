@@ -11,8 +11,8 @@ import numpy as np
 import os
 import pandas as pd
 
-final=pd.read_csv('/content/drive/MyDrive/final data/final_data_dec11.csv')
-final1=pd.read_csv('/content/drive/MyDrive/KEYPOINTS_ISLRTC_DATA/islrtc_dc1row_with_labels.csv')
+final=pd.read_csv('/mnt/fs/dataset_creation/final_data_dec11.csv')
+final1=pd.read_csv('/mnt/fs/dataset_creation/islrtc_dc1row_with_labels.csv')
 
 final1=final1.drop('class_name_1',axis=1)
 #'class_name_2','class_name_3','class_name_4','class_name_5','class_name_6','class_name_7','class_name_8','class_name_9','class_name_10','class_name_11','class_name_12',
@@ -43,7 +43,7 @@ from xgboost import XGBClassifier
 xg = XGBClassifier()
 xg.fit(X,y)
 pred2 = xg.predict(X_test)
-print("$$$XGBoost Completed$$$$")
+print("$$$XGBoost fitting Completed$$$$")
 
 from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
 matrix1=confusion_matrix(y_test, pred2)
@@ -55,5 +55,5 @@ print(accuracy_score(y_test, pred2))
 print("&&&DONE WITH ACCURACY SCORE&&&")
 
 import pandas as pd 
-pd.DataFrame(matrix1).to_csv("/content/drive/MyDrive/80_class_tested_matrix_xgboost.csv")
+pd.DataFrame(matrix1).to_csv("/mnt/fs/dataset_creation/80_class_tested_matrix_xgboost.csv")
 print("$$$Done with csv$$$")
