@@ -10,9 +10,23 @@ import numpy as np
 import os
 import pandas as pd
 
-final=pd.read_csv('/mnt/fs/final_data_dec11.csv')
-final1=pd.read_csv('/mnt/fs/dataset_creation/islrtc_dc1row_with_labels.csv')
+final=pd.read_csv('/mnt/fs/final_ver2_data_27dec.csv')
+final1=pd.read_csv('/mnt/fs/dataset_creation/ver_2_test_data.csv')
 
+final=final.drop('class_name_1',axis=1)
+#'class_name_2','class_name_3','class_name_4','class_name_5','class_name_6','class_name_7','class_name_8','class_name_9','class_name_10','class_name_11','class_name_12',
+final=final.drop('class_name_2',axis=1)
+final=final.drop('class_name_3',axis=1)
+final=final.drop('class_name_4',axis=1)
+final=final.drop('class_name_5',axis=1)
+final=final.drop('class_name_6',axis=1)
+final=final.drop('class_name_7',axis=1)
+final=final.drop('class_name_8',axis=1)
+final=final.drop('class_name_9',axis=1)
+final=final.drop('class_name_10',axis=1)
+final=final.drop('class_name_11',axis=1)
+final=final.drop('class_name_12',axis=1)
+#final=final.drop('Augs',axis=1)
 final1=final1.drop('class_name_1',axis=1)
 #'class_name_2','class_name_3','class_name_4','class_name_5','class_name_6','class_name_7','class_name_8','class_name_9','class_name_10','class_name_11','class_name_12',
 final1=final1.drop('class_name_2',axis=1)
@@ -54,5 +68,5 @@ print(accuracy_score(y_test, pred2))
 print("&&&DONE WITH ACCURACY SCORE&&&")
 
 import pandas as pd 
-pd.DataFrame(matrix1).to_csv("/mnt/fs/dataset_creation/80_class_tested_matrix_xgboost.csv")
+pd.DataFrame(matrix1).to_csv("/mnt/fs/dataset_creation/80_class_tested_matrix_xgboost_ver_2.csv")
 print("$$$Done with csv$$$")
