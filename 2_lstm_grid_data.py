@@ -68,11 +68,11 @@ import pandas as pd
  from tensorflow.keras.callbacks import  ModelCheckpoint
 
 model2 = tf.keras.models.Sequential([
-     tf.keras.layers.LSTM(units =40,input_shape = X.shape[1:],return_sequences=True),
+     tf.keras.layers.LSTM(units =60,input_shape = X.shape[1:],return_sequences=True),
      tf.keras.layers.BatchNormalization(),
-     tf.keras.layers.LSTM(units =50),
+     tf.keras.layers.LSTM(units =40),
      tf.keras.layers.BatchNormalization(),
-     tf.keras.layers.Dense(40, activation='relu'),
+     tf.keras.layers.Dense(50, activation='relu'),
      tf.keras.layers.Dropout(0.4),
      tf.keras.layers.Dense(34),
      tf.keras.layers.Activation(activations.softmax)
@@ -86,8 +86,8 @@ model2.compile(optimizer = 'adam', loss = 'categorical_crossentropy', metrics=['
 from keras.callbacks import CSVLogger
 
 # checkpoint
-checkpoint_path_1='"/mnt/fs/h5_files/model1/model_history_log_1.csv"'
-checkpoint_path="/mnt/fs/h5_files/model1/model.{epoch:02d}-{val_accuracy:.2f}.h5"
+checkpoint_path_1='"/mnt/fs/h5_files/model2/model_history_log_1.csv"'
+checkpoint_path="/mnt/fs/h5_files/model2/model.{epoch:02d}-{val_accuracy:.2f}.h5"
 keras_callbacks   = [
       EarlyStopping(monitor='val_loss', patience=3, mode='min', min_delta=0.0001),
       ModelCheckpoint(checkpoint_path, monitor='val_accuracy', verbose=1, save_best_only=True, mode='max'),
