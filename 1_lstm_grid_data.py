@@ -11,32 +11,20 @@ Original file is located at
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-
+from sklearn.preprocessing import LabelEncoder
 dd=pd.read_csv('/mnt/fs/var_kp_2000.csv')
-
 X=dd.iloc[:,1:].values
 y=dd['class_name']
-
-from sklearn.preprocessing import LabelEncoder
-
 le = LabelEncoder()
-
 #train['class'] = le.fit_transform(train['class'])
-
 y = le.fit_transform(y)
-
 # one hot encode output variable
 from tensorflow.keras.utils import to_categorical
 y = to_categorical(y)
-
 X=np.reshape(X,(100769,975,1))
-
 # Splitting the dataset into the Training set and Test set
 from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)
-
-
-
 # Feature Scaling
 #from sklearn.preprocessing import MinMaxScaler
 #sc = MinMaxScaler()
@@ -54,18 +42,18 @@ from keras.layers import Dense
 from keras.layers import LSTM
 
 import pandas as pd
- from sklearn.preprocessing import LabelEncoder
- from sklearn.model_selection import train_test_split
- from sklearn.preprocessing import StandardScaler   
- import tensorflow as tf
- from tensorflow import keras
- from tensorflow.keras import activations
- from tensorflow.keras import layers
- from keras.models import Sequential
- from keras.layers import Dense,Dropout,LSTM,BatchNormalization
- from keras.callbacks import EarlyStopping
- #import tensorflowjs as tfjs
- from tensorflow.keras.callbacks import  ModelCheckpoint
+from sklearn.preprocessing import LabelEncoder
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler   
+import tensorflow as tf
+from tensorflow import keras
+from tensorflow.keras import activations
+from tensorflow.keras import layers
+from keras.models import Sequential
+from keras.layers import Dense,Dropout,LSTM,BatchNormalization
+from keras.callbacks import EarlyStopping
+#import tensorflowjs as tfjs
+from tensorflow.keras.callbacks import  ModelCheckpoint
 
 model2 = tf.keras.models.Sequential([
      tf.keras.layers.LSTM(units =40,input_shape = X.shape[1:],return_sequences=True),
