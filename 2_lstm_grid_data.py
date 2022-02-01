@@ -16,7 +16,6 @@ dd=pd.read_csv('/mnt/fs/var_kp_2000.csv')
 
 X=dd.iloc[:,1:].values
 y=dd['class_name']
-
 from sklearn.preprocessing import LabelEncoder
 
 le = LabelEncoder()
