@@ -53,18 +53,18 @@ from keras.layers import Dense
 from keras.layers import LSTM
 
 import pandas as pd
- from sklearn.preprocessing import LabelEncoder
- from sklearn.model_selection import train_test_split
- from sklearn.preprocessing import StandardScaler   
- import tensorflow as tf
- from tensorflow import keras
- from tensorflow.keras import activations
- from tensorflow.keras import layers
- from keras.models import Sequential
- from keras.layers import Dense,Dropout,LSTM,BatchNormalization
- from keras.callbacks import EarlyStopping
- #import tensorflowjs as tfjs
- from tensorflow.keras.callbacks import  ModelCheckpoint
+from sklearn.preprocessing import LabelEncoder
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler   
+import tensorflow as tf
+from tensorflow import keras
+from tensorflow.keras import activations
+from tensorflow.keras import layers
+from keras.models import Sequential
+from keras.layers import Dense,Dropout,LSTM,BatchNormalization
+from keras.callbacks import EarlyStopping
+#import tensorflowjs as tfjs
+from tensorflow.keras.callbacks import  ModelCheckpoint
 
 model2 = tf.keras.models.Sequential([
      tf.keras.layers.LSTM(units =60,input_shape = X.shape[1:],return_sequences=True),
