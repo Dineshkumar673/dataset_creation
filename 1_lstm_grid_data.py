@@ -74,7 +74,7 @@ model2.compile(optimizer = 'adam', loss = 'categorical_crossentropy', metrics=['
 from keras.callbacks import CSVLogger
 
 # checkpoint
-checkpoint_path_1='"/mnt/fs/h5_files/model1/model_history_log_1.csv"'
+checkpoint_path_1="/mnt/fs/model_history_log_1.csv"
 checkpoint_path="/mnt/fs/h5_files/model1/model.{epoch:02d}-{val_accuracy:.2f}.h5"
 keras_callbacks   = [
       EarlyStopping(monitor='val_loss', patience=3, mode='min', min_delta=0.0001),
